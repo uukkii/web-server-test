@@ -39,6 +39,13 @@ public class HandlerGeneral {
     protected static final String[] columnMapping = {"name", "catColor", "tailLength", "whiskersLength"};
     protected static final ObjectMapper objectMapper = new ObjectMapper();
 
+    public static void sendResponse(HttpExchange httpExchange, int rCode, String requestParamValue) throws IOException {
+        httpExchange.sendResponseHeaders(rCode, requestParamValue.length());
+        httpExchange.getResponseBody().write(requestParamValue.getBytes());
+        httpExchange.getResponseBody().flush();
+        httpExchange.getResponseBody().close();
+    }
+
     protected void handleResponse(HttpExchange httpExchange, String requestParamValue) throws IOException {
         String param = objectMapper.writeValueAsString(requestParamValue);
         if (requestParamValue != null) {
@@ -61,12 +68,5 @@ public class HandlerGeneral {
             e.printStackTrace();
         }
         return listOfCats;
-    }
-
-    public static void sendResponse(HttpExchange httpExchange, int rCode, String requestParamValue) throws IOException {
-        httpExchange.sendResponseHeaders(rCode, requestParamValue.length());
-        httpExchange.getResponseBody().write(requestParamValue.getBytes());
-        httpExchange.getResponseBody().flush();
-        httpExchange.getResponseBody().close();
     }
 }

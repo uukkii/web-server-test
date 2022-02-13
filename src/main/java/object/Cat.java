@@ -10,28 +10,28 @@ public class Cat {
         return name;
     }
 
-    public String getCatColor() {
-        return catColor;
-    }
-
-    public int getTailLength() {
-        return tailLength;
-    }
-
-    public int getWhiskersLength() {
-        return whiskersLength;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCatColor() {
+        return catColor;
     }
 
     public void setCatColor(String catColor) {
         this.catColor = catColor;
     }
 
+    public int getTailLength() {
+        return tailLength;
+    }
+
     public void setTailLength(int tailLength) {
         this.tailLength = tailLength;
+    }
+
+    public int getWhiskersLength() {
+        return whiskersLength;
     }
 
     public void setWhiskersLength(int whiskersLength) {

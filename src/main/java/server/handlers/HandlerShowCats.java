@@ -58,8 +58,8 @@ public class HandlerShowCats extends server.handlers.HandlerGeneral implements H
         List<Cat> sortedList;
         switch (attribute) {
             case CATS_PARAM_NAME -> sortedList = catList.stream()
-                        .sorted(Comparator.comparing(Cat::getName))
-                        .collect(Collectors.toList());
+                    .sorted(Comparator.comparing(Cat::getName))
+                    .collect(Collectors.toList());
             case CATS_PARAM_COLOUR -> sortedList = catList.stream()
                     .sorted(Comparator.comparing(Cat::getCatColor))
                     .collect(Collectors.toList());

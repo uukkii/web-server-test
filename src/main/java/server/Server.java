@@ -1,7 +1,10 @@
 package server;
 
 import com.sun.net.httpserver.HttpServer;
-import server.handlers.*;
+import server.handlers.HandlerColourStat;
+import server.handlers.HandlerLengthStat;
+import server.handlers.HandlerPing;
+import server.handlers.HandlerShowCats;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -25,7 +28,6 @@ public class Server {
 
     public void start() {
         server.createContext("/cat", new server.handlers.HandlerNewCat());
-        server.createContext("/cat -d", new server.handlers.HandlerNewCat());
         server.createContext("/ping", new HandlerPing());
         server.createContext("/cats", new HandlerShowCats());
         server.createContext("/stats/colour", new HandlerColourStat());
